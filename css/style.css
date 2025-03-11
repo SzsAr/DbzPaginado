@@ -1,0 +1,9 @@
+.altura-img{
+    height: 400px;
+}
+body{
+    background-image: url(../img/bg.jpg);
+}
+.bg-perso{
+    background-color: rgba(0, 255, 255, 0.432);
+}
