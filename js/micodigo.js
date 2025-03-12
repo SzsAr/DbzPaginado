@@ -4,38 +4,92 @@ let totalPag = 1
 
 const urldragon = `https://dragonball-api.com/api/characters`
 
-const btnFirst = document.getElementById('btn-first')
 const btnPrevious = document.getElementById('btn-previous')
+
+const btnUno = document.getElementById('btn-1')
+const btnDos = document.getElementById('btn-2')
+const btnTres = document.getElementById('btn-3')
+const btnCuatro = document.getElementById('btn-4')
+const btnCinco = document.getElementById('btn-5')
+const btnSeis = document.getElementById('btn-6')
+const btnSiete = document.getElementById('btn-7')
+const btnOcho = document.getElementById('btn-8')
+const btnNueve = document.getElementById('btn-9')
+const btnDiez = document.getElementById('btn-10')
+const btnOnce = document.getElementById('btn-11')
+const btnDoce = document.getElementById('btn-12')
+
 const btnNext = document.getElementById('btn-next')
-const btnLast = document.getElementById('btn-last')
-
-btnFirst.addEventListener('click', () =>{
-    pagina = 1
-    personajes()
-})
-
-
 
 btnPrevious.addEventListener("click", () => {
     if (pagina > 1) {
         pagina--;
         personajes();
-    } else {
-        alert("No hay más personajes anteriores")
     }
 });
 
+btnUno.addEventListener("click", ()=> {
+    pagina = 1;
+    personajes();
+})
+btnDos.addEventListener("click", ()=> {
+    pagina = 2;
+    personajes();
+})
+btnTres.addEventListener("click", ()=> {
+    pagina = 3;
+    personajes();
+})
+btnCuatro.addEventListener("click", ()=> {
+    pagina = 4;
+    personajes();
+})
+btnCinco.addEventListener("click", ()=> {
+    pagina = 5;
+    personajes();
+})
+btnSeis.addEventListener("click", ()=> {
+    pagina = 6;
+    personajes();
+})
+btnSiete.addEventListener("click", ()=> {
+    pagina = 7;
+    personajes();
+})
+btnOcho.addEventListener("click", ()=> {
+    pagina = 8;
+    personajes();
+})
+btnNueve.addEventListener("click", ()=> {
+    pagina = 9;
+    personajes();
+})
+btnDiez.addEventListener("click", ()=> {
+    pagina = 10;
+    personajes();
+})
+btnOnce.addEventListener("click", ()=> {
+    pagina = 11;
+    personajes();
+})
+btnDoce.addEventListener("click", ()=> {
+    pagina = 12;
+    personajes();
+})
+
 
 btnNext.addEventListener('click', () =>{
-    pagina++
-    personajes()
-})
-btnLast.addEventListener('click', () =>{
-    pagina = 12
-    personajes()
+    if (pagina > 1) {
+        pagina++;
+        personajes();
+    } else {
+        alert("No hay más personajes")
+    }
 })
 
-
+if(pagina == '12'){
+    btnNext.disabled = true
+}
 
 // Configuración de la petición
 const opciones = {
@@ -119,6 +173,16 @@ function personajes(){
     })
     .finally(() => {
         console.log("Petición de dragon ball finalizada");
+        if (pagina === 12) {
+            btnNext.disabled = true;
+        } else {
+            btnNext.disabled = false; // Habilitar si no estamos en la página 12
+        }
+        if (pagina === 1) {
+            btnPrevious.disabled = true;
+        }else{
+            btnPrevious.disabled = false; // Habilitar si no estamos en la página 1
+        }
     });
 }
 
